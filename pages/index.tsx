@@ -161,9 +161,16 @@ const Home: NextPage = () => {
       <div className="top-0 left-0 w-full">
         <div className="flex items-center justify-between filter drop-shadow-md bg-slate-100 h-14 px-4">
             <Link href="/"><a className="text-xl font-semibold">Utakmice demo WEB2-LAB1</a></Link>
-            {!user  
-              ? <div className="flex gap-4"><p className="text-xl font-semibold text-red-500">Nelogiran</p><Link href="/api/auth/login"><a className="text-xl font-semibold">Login</a></Link></div> 
-              : <div className="flex gap-4"><p className="text-xl font-semibold text-green-500">{user?.role === 0 || user?.role === undefined ? 'Korisnik - ' : 'Admin - '}{user?.nickname}</p><Link href="/api/auth/logout"><a className="text-xl font-semibold" >Logout</a></Link></div> 
+            {!user &&
+              <div className="flex gap-4">
+                <p className="text-xl font-semibold text-red-500">Nelogiran</p>
+                <Link href="/api/auth/login"><a className="text-xl font-semibold">Login</a></Link>
+              </div>}
+            { user &&
+              <div className="flex gap-4">
+                <p className="text-xl font-semibold text-green-500">{user.role === 1 ? 'Admin - ' : 'Korisnik - '}{user?.nickname}</p>
+                <Link href="/api/auth/logout"><a className="text-xl font-semibold" >Logout</a></Link>
+              </div> 
             }
         </div>
       </div>
