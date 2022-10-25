@@ -25,11 +25,13 @@ export type GameDTO = {
 }
 
 export type CommentDTO = {
+    time: string,
     email: string,
     text: string,
 }
 
 export type Comment = {
+    time: string,
     id: string,
     email: string,
     text: string,

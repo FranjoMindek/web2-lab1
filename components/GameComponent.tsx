@@ -17,7 +17,9 @@ const GameComponent = ({game, user, removedComment, editedGame}: {
   const [commentText, setCommentText] = useState('');
 
   async function addComment() {
-    const comment: CommentDTO = {email: user.email, text: commentText};
+    const date = new Date();
+    const dateTime: string =  date.getDate() + "." + date.getMonth() + "." + date.getFullYear() + ". " + date.getHours() + ":" + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()) + ":" + (date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds());
+    const comment: CommentDTO = {time: dateTime, email: user.email, text: commentText};
     const commentRef = await addDoc(collection(db, 'comments', 'byGame', game.id), comment);
     game.comments.push({...comment, id: commentRef.id});
     setCommentText('');

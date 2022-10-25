@@ -68,9 +68,9 @@ const Home: NextPage = () => {
       tableInfoArray.push([team, tableInfoObject[team]]);
     }
     tableInfoArray.sort( (a: any, b: any) => {
+      if (b[1]['points'] !== a[1]['points']) return b[1]['points'] - a[1]['points'];
       return b[1]['pointDifference'] - a[1]['pointDifference'];
     })
-    console.log(tableInfoArray);
     setTableInfo([...tableInfoArray])
   }, [games])
 
@@ -99,6 +99,7 @@ const Home: NextPage = () => {
     commentsSnapshot.forEach(doc => {
       const data = doc.data()
       const comment: Comment = {
+        time: data.time,
         id: doc.id,
         email: data.email,
         text: data.text,

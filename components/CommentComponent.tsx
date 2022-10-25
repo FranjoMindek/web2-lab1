@@ -22,6 +22,7 @@ const CommentComponent = ({game, user, comment, removedComment}: {game: Game, us
   return (
     <div className='bg-gray-100 flex flex-col'>
       <div className="break-words">
+        <span className='italic'>{comment.time}&nbsp;</span>
         <span className="font-semibold">{comment.email.split("@")[0]}:&nbsp;</span>
         <span className="text-neutral-700">{comment.text}</span>
       </div>

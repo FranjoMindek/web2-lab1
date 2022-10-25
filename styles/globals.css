@@ -19,6 +19,9 @@ a {
   box-sizing: border-box;
 }
 
+button:hover {
+  filter: brightness(95%);
+}
 /* 
 @media (prefers-color-scheme: dark) {
   html {
