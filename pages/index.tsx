@@ -152,8 +152,8 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
-        <meta name="description" content="WEB2-lab1" />
+        <title>WEB2-lab1</title>
+        <meta name="description" content="WEB2-lab1"/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* HEADER */}
